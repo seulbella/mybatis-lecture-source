@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MenuMapper">
+
+    <!-- 조회한 컬럼과 DTO의 필드를 매핑(연결) 시키기 위한 설정으로 resultMap을 사용한다. -->
+    <!-- Mybatis를 통해 자동 매핑을 하기 위해서 MenuDTO에는 기본 생성자, setter 메소드를 이용한다. (없으면 생성해서 동작함) -->
+    <resultMap id="menuResultMap" type="com.ohgiraffers.section01.xmlconfig.MenuDTO">
+        <!-- id 태그는 pk에 해당하는 컬럼을 작성 -->
+        <id property="menuCode" column="menu_code"/>
+        <!-- result 태그는 pk 외의 일반 컬럼을 작성 -->
+        <result property="menuName" column="menu_name"/>
+        <result property="menuPrice" column="menu_price"/>
+        <result property="categoryCode" column="category_code"/>
+        <result property="orderableStatus" column="orderable_status"/>
+    </resultMap>
+
+    <select id="selectAllMenu" resultMap="menuResultMap">
+        SELECT
+            menu_code,
+            menu_name,
+            menu_price,
+            category_code,
+            orderable_status
+        FROM
+            tbl_menu
+        WHERE
+            orderable_status = 'Y'
+        ORDER BY
+            menu_code
+    </select>
+
+</mapper>
