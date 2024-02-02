@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.section01.xml.DynamicSqlMapper">
+
+    <select id="selectMenuByPrice" resultType="com.ohgiraffers.common.MenuDTO">
+        SELECT
+        menu_code,
+        menu_name,
+        menu_price,
+        category_code,
+        orderable_status
+        FROM
+        tbl_menu
+        WHERE
+        orderable_status = 'Y'
+        <!-- if 태그 : test 속성의 조건에 해당할 때만 엘리먼트 구문을 쿼리에 포함한다.
+        gt : 크다, gte : 크거나 같다, lt : 작다, lte : 작거나 같다
+        -->
+        <if test="price gte 0 and price lte 10000">
+            <![CDATA[
+            AND menu_price < #{ price }
+            ]]>
+        </if>
+        <if test="price gt 10000 and price lte 20000">
+            AND menu_price BETWEEN 10000 AND #{ price }
+        </if>
+        <if test="price gt 20000 and price lte 30000">
+            AND menu_price BETWEEN 20000 AND #{ price }
+        </if>
+        <if test="price gt 30000">
+            AND menu_price BETWEEN 30000 AND #{ price }
+        </if>
+        ORDER BY
+        menu_code
+    </select>
+
+    <select id="searchMenu" resultType="com.ohgiraffers.common.MenuDTO">
+        SELECT
+        menu_code,
+        menu_name,
+        menu_price,
+        category_code,
+        orderable_status
+        FROM
+        tbl_menu
+        <if test="condition == 'category'">
+            JOIN tbl_category USING (category_code)
+        </if>
+        WHERE
+        orderable_status = 'Y'
+        <if test="condition == 'name'">
+            AND menu_name LIKE CONCAT('%', #{ value }, '%')
+        </if>
+        <if test="condition == 'category'">
+            AND category_name = #{ value }
+        </if>
+        ORDER BY
+        menu_code
+    </select>
+
+</mapper>

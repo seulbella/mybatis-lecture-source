@@ -1,22 +1,22 @@
-package com.ohgiraffers.section01.xmlconfig;
+package com.ohgiraffers.section03.remix;
 
 import org.apache.ibatis.session.SqlSession;
-import static com.ohgiraffers.section01.xmlconfig.Template.getSqlSesstion;
 
 import java.util.List;
 
+import static com.ohgiraffers.section03.remix.Template.getSqlSesstion;
+
 public class MenuService {
 
-    private final MenuDAO menuDAO;
-
-    public MenuService() {
-        menuDAO = new MenuDAO();
-    }
+    private MenuMapper menuMapper;
 
     public List<MenuDTO> selectAllMenu() {
+
         SqlSession sqlSession = getSqlSesstion();
 
-        List<MenuDTO> menuList = menuDAO.selectAllMenu(sqlSession);
+        menuMapper = sqlSession.getMapper(MenuMapper.class);
+
+        List<MenuDTO> menuList = menuMapper.selectAllMenu();
 
         sqlSession.close();
 
@@ -26,7 +26,9 @@ public class MenuService {
     public MenuDTO selectMenuByMenuCode(int menuCode) {
         SqlSession sqlSession = getSqlSesstion();
 
-        MenuDTO menu = menuDAO.selectMenuByMenuCode(sqlSession, menuCode);
+        menuMapper = sqlSession.getMapper(MenuMapper.class);
+
+        MenuDTO menu = menuMapper.selectMenuByMenuCode(menuCode);
 
         sqlSession.close();
 
@@ -36,7 +38,8 @@ public class MenuService {
     public boolean registMenu(MenuDTO menu) {
         SqlSession sqlSession = getSqlSesstion();
 
-        int result = menuDAO.insertMenu(sqlSession, menu);
+        menuMapper = sqlSession.getMapper(MenuMapper.class);
+        int result = menuMapper.insertMenu(menu);
 
         if(result > 0) {
             sqlSession.commit();
@@ -52,7 +55,8 @@ public class MenuService {
     public boolean modifyMenu(MenuDTO menu) {
         SqlSession sqlSession = getSqlSesstion();
 
-        int result = menuDAO.updateMenu(sqlSession, menu);
+        menuMapper = sqlSession.getMapper(MenuMapper.class);
+        int result = menuMapper.updateMenu(menu);
 
         if(result > 0) {
             sqlSession.commit();
@@ -68,7 +72,8 @@ public class MenuService {
     public boolean deleteMenu(int menuCode) {
         SqlSession sqlSession = getSqlSesstion();
 
-        int result = menuDAO.deleteMenu(sqlSession, menuCode);
+        menuMapper = sqlSession.getMapper(MenuMapper.class);
+        int result = menuMapper.deleteMenu(menuCode);
 
         if(result > 0) {
             sqlSession.commit();
