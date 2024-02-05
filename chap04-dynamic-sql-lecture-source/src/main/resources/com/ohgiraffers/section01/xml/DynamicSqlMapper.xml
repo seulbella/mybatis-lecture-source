@@ -6,15 +6,15 @@
 
     <select id="selectMenuByPrice" resultType="com.ohgiraffers.common.MenuDTO">
         SELECT
-        menu_code,
-        menu_name,
-        menu_price,
-        category_code,
-        orderable_status
+            menu_code,
+            menu_name,
+            menu_price,
+            category_code,
+            orderable_status
         FROM
-        tbl_menu
+            tbl_menu
         WHERE
-        orderable_status = 'Y'
+            orderable_status = 'Y'
         <!-- if 태그 : test 속성의 조건에 해당할 때만 엘리먼트 구문을 쿼리에 포함한다.
         gt : 크다, gte : 크거나 같다, lt : 작다, lte : 작거나 같다
         -->
@@ -33,23 +33,23 @@
             AND menu_price BETWEEN 30000 AND #{ price }
         </if>
         ORDER BY
-        menu_code
+            menu_code
     </select>
 
     <select id="searchMenu" resultType="com.ohgiraffers.common.MenuDTO">
         SELECT
-        menu_code,
-        menu_name,
-        menu_price,
-        category_code,
-        orderable_status
+            menu_code,
+            menu_name,
+            menu_price,
+            category_code,
+            orderable_status
         FROM
-        tbl_menu
+            tbl_menu
         <if test="condition == 'category'">
             JOIN tbl_category USING (category_code)
         </if>
         WHERE
-        orderable_status = 'Y'
+            orderable_status = 'Y'
         <if test="condition == 'name'">
             AND menu_name LIKE CONCAT('%', #{ value }, '%')
         </if>
@@ -57,7 +57,161 @@
             AND category_name = #{ value }
         </if>
         ORDER BY
-        menu_code
+            menu_code
     </select>
 
+    <select id="searchMenuBySupCategory" resultType="com.ohgiraffers.common.MenuDTO">
+        SELECT
+            menu_code,
+            menu_name,
+            menu_price,
+            category_code,
+            orderable_status
+        FROM
+            tbl_menu
+        WHERE
+            orderable_status = 'Y'
+        <!-- choose(when,otherwise) : java의 if-elseif 문 또는 switch-case 문과 같은 역할을 한다. -->
+        <choose>
+            <when test="value == '식사'">
+                AND category_code IN (4, 5, 6, 7)
+            </when>
+            <when test="value == '음료'">
+                AND category_code IN (8, 9, 10)
+            </when>
+            <otherwise>
+                AND category_code IN (11, 12)
+            </otherwise>
+        </choose>
+        ORDER BY menu_code
+    </select>
+
+    <select id="searchMenuByRandomMenuCode" resultType="com.ohgiraffers.common.MenuDTO">
+        SELECT
+            menu_code,
+            menu_name,
+            menu_price,
+            category_code,
+            orderable_status
+        FROM
+            tbl_menu
+        WHERE
+            menu_code IN
+        <!--
+            1. collection : 반복을 수행할 대상
+            2. item : 반복을 수행할 때마다 꺼내올 값의 이름 설정
+            3. open : 반복문 구문의 가장 앞에 올 문자
+            4. separator : 반복이 수행 될 때 꺼내온 item 사이에 들어갈 문자
+            5. close : 반복문 구문의 가장 마지막에 올 문자
+         -->
+        <foreach collection="randomMenuCodeList" item="menuCode" open="(" separator="," close=")">
+            #{ menuCode }
+        </foreach>
+    </select>
+
+    <select id="searchMenuByNameOrCategory" resultType="com.ohgiraffers.common.MenuDTO">
+        SELECT
+            menu_code,
+            menu_name,
+            menu_price,
+            category_code,
+            orderable_status
+        FROM
+            tbl_menu
+        <!-- 문제 상황 발생 -->
+<!--        <if test="nameValue != null">
+            WHERE menu_name LIKE CONCAT('%', #{ nameValue }, '%')
+        </if>
+        <if test="categoryValue != null">
+            AND category_code = #{ categoryValue }
+        </if>
+        -->
+
+        <!-- 해결 방법 1. where 태그 사용
+        (1) 구문이 where로 시작하지 않으면 자동으로 where을 붙여준다.
+        (2) 태그 내부에 쿼리문이 추가되지 않으면 where을 무시한다.
+        (3) 구문이 AND나 OR로 시작하면 자동으로 해당 단어를 제거한다.
+        -->
+<!--        <where>
+            <if test="nameValue != null">
+                menu_name LIKE CONCAT('%', #{ nameValue }, '%')
+            </if>
+            <if test="categoryValue != null">
+                AND category_code = #{ categoryValue }
+            </if>
+        </where>-->
+
+        <!--
+            해결 방법 2. trim 태그 이용
+            (1) prefix : 처리 후 엘리먼트의 내용이 있으면 가장 앞에 붙여주는 문자
+            (2) prefixOverrides : 처리 후 엘리먼트의 내용 중 가장 앞에 해당하는 문자를 자동 삭제
+            (3) suffix : 처리 후 엘리먼트의 내용이 있으면 가장 뒤에 붙여주는 문자
+            (4) suffixOverrides : 처리 후 엘리먼트의 내용 중 가장 뒤에 해당하는 문자를 자동 삭제
+        -->
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="nameValue != null">
+                menu_name LIKE CONCAT('%', #{ nameValue }, '%')
+            </if>
+            <if test="categoryValue != null">
+                AND category_code = #{ categoryValue }
+            </if>
+        </trim>
+    </select>
+
+    <update id="updateMenu">
+        UPDATE
+            tbl_menu
+            <!-- 문제 상황 발생 -->
+<!--            <if test="menuName != null and menuName != ''">
+            menu_name = #{ menuName },
+            </if>
+            <if test="categoryCode != null and categoryCode gt 0">
+            category_code = #{ categoryCode },
+            </if>
+            <if test="orderableStatus != null and orderableStatus != ''">
+            orderable_status = #{ orderableStatus }
+            </if>-->
+
+            <!--
+            해결 방안 1. set 태그 사용
+            (1) SET 구문 작성
+            (2) 앞 또는 뒤에 붙는 , 를 제거
+            -->
+<!--            <set>-->
+<!--                <if test="menuName != null and menuName != ''">-->
+<!--                    menu_name = #{ menuName },-->
+<!--                </if>-->
+<!--                <if test="categoryCode != null and categoryCode gt 0">-->
+<!--                    category_code = #{ categoryCode },-->
+<!--                </if>-->
+<!--                <if test="orderableStatus != null and orderableStatus != ''">-->
+<!--                    orderable_status = #{ orderableStatus }-->
+<!--                </if>-->
+<!--            </set>-->
+
+        <!-- 해결방법 2. trim 태그 사용 -->
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="menuName != null and menuName != ''">
+                menu_name = #{ menuName },
+            </if>
+            <if test="categoryCode != null and categoryCode gt 0">
+                category_code = #{ categoryCode },
+            </if>
+            <if test="orderableStatus != null and orderableStatus != ''">
+                orderable_status = #{ orderableStatus }
+            </if>
+        </trim>
+        WHERE
+            menu_code = #{ menuCode }
+    </update>
 </mapper>
+
+
+
+
+
+
+
+
+
+

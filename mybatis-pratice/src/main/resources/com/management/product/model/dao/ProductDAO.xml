@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- * 주석을 지우고 각각 알맞은 태그를 활용하여 내용을 작성하세요. -->
+
+<!-- 1. namesapce 설정을 알맞게 지정하세요. -->
+<mapper namespace="com.management.product.model.dao.ProductDAO">
+
+    <!-- 2. ProductDTO type의 resultMap을 설정하세요. -->
+    <!-- select의 결과로 나올 -->
+
+    <!-- 3. 전체 목록을 조회하는 쿼리를 작성하세요.
+            (쿼리id) selectAllProductList -->
+
+    <!-- 4. 조건에 따른 목록을 조회하는 쿼리를 작성하세요.
+            (쿼리id) selectProductByCondition
+            (참고 1) 제품명 조회인 경우, 검색어를 '포함'한 모든 제품을 조회합니다.
+                     (예시) '솔' 검색 -> 솔방울, 칫솔 등 '솔' 포함 제품 모두 조회
+            (참고 2) 판매점 유형별 조회의 경우,
+                     '백화점'이면 할인율이 0%인 제품, '아울렛'이면 할인율이 1% 이상인 제품을 조회합니다.
+            (참고 3) 이달의 신상품 조희의 경우, 출시일이 이번 달인 제품(예를 들어, 현재 기준이면 2023년 5월 출시 제품)울 조회합니다. -->
+
+    <!-- 5. 제품 정보를 등록하는 쿼리를 작성하세요.
+            (쿼리id) insertProduct -->
+
+    <!-- 6. 사용자가 수정을 원하는 데이터만 수정하도록 Dynamic Query를 활용한 쿼리를 작성하세요.
+            (쿼리id) updateProduct -->
+
+    <!-- 7. 제품 정보를 삭제하는 쿼리를 작성하세요.
+            (쿼리id) deleteProduct -->
+
+</mapper>

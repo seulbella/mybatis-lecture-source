@@ -1,20 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+        "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
 
     <properties resource="config/connection-info.properties"/>
 
     <settings>
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="mapUnderscoreToCamlCase" value="true"/>
     </settings>
 
     <environments default="dev">
         <environment id="dev">
-            <!-- type : JDBC or MANAGED 선택 -->
             <transactionManager type="JDBC"/>
-            <!-- type : POOLED or UNPOOLED 선택 -->
             <dataSource type="POOLED">
                 <property name="driver" value="${driver}"/>
                 <property name="url" value="${url}"/>
@@ -23,17 +21,9 @@
             </dataSource>
         </environment>
     </environments>
-
+    
     <mappers>
-        <package name="com.ohgiraffers.section01.xml"/>
-        <package name="com.ohgiraffers.section02.provider"/>
+        <package name="com.management.product.model.dao"/>
     </mappers>
 
 </configuration>
-
-
-
-
-
-
-
