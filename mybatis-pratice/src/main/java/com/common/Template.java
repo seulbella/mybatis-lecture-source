@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
 
 public class Template {
 
@@ -15,7 +14,7 @@ public class Template {
 
     public static SqlSession getSqlSession() {
 
-        if (sqlSessionFactory == null) {
+        if(sqlSessionFactory == null) {
             String resource = "config/mybatis-config.xml";
             try {
                 InputStream inputStream = Resources.getResourceAsStream(resource);
@@ -25,8 +24,7 @@ public class Template {
             }
         }
 
-//        connection.setAutoCommit(false);
-        /* openSession(false) : auto commit을 수동으로 설정해줌 */
         return sqlSessionFactory.openSession(false);
     }
+
 }

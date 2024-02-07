@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration
-        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
 
     <properties resource="config/connection-info.properties"/>
 
-    <settings>
-        <setting name="mapUnderscoreToCamlCase" value="true"/>
-    </settings>
+    <typeAliases>
+        <typeAlias type="com.management.product.model.dto.ProductDTO" alias="ProductDTO"/>
+        <typeAlias type="com.common.SearchCondition" alias="SearchCondition"/>
+    </typeAliases>
 
     <environments default="dev">
         <environment id="dev">
-            <transactionManager type="JDBC"/>
+            <transactionManager type="JDBC" />
             <dataSource type="POOLED">
-                <property name="driver" value="${driver}"/>
-                <property name="url" value="${url}"/>
-                <property name="username" value="${username}"/>
-                <property name="password" value="${password}"/>
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${password}" />
             </dataSource>
         </environment>
     </environments>
-    
     <mappers>
         <package name="com.management.product.model.dao"/>
     </mappers>

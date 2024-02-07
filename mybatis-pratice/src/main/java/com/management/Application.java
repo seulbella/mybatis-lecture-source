@@ -1,7 +1,6 @@
 package com.management;
 
 import com.management.product.view.ProductMenu;
-import com.management.product.view.ProductPrint;
 
 import java.util.Scanner;
 
