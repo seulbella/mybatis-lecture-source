@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohgiraffers.admin.categoryManager.model.dao.CategoryDAO">
+
+    <select id="selectAllCategoryList" resultType="CategoryDTO">
+        SELECT category_code, category_name, ref_category_code
+        FROM tbl_category
+        ORDER BY category_code
+    </select>
+
+    <select id="selectCategoryByCondition" resultType="CategoryDTO">
+        SELECT category_code, category_name, ref_category_code
+        FROM tbl_category
+        WHERE
+            <choose>
+                <when test="option == 'categoryCode'">
+                    category_code = #{value}
+                </when>
+            </choose>
+            <choose>
+                <when test="option == 'categoryName'">
+                    category_name LIKE CONCAT('%', #{value}, '%')
+                </when>
+            </choose>
+            <choose>
+                <when test="option == 'refCategoryCode'">
+                    ref_category_code = #{value}
+                </when>
+            </choose>
+        ORDER BY category_code
+    </select>
+
+    <insert id="insertCategory">
+        INSERT INTO tbl_category (category_name, ref_category_code)
+        VALUES (#{categoryName}, #{refCategoryCode})
+    </insert>
+
+    <update id="updateCategory">
+        UPDATE tbl_category
+        <set>
+            <if test="categoryName != null and categoryName != 'SKIP'">
+                category_name = #{categoryName},
+            </if>
+            <if test="refCategoryCode != null and refCategoryCode != 'SKIP'">
+                ref_category_code = #{refCategoryCode}
+            </if>
+        </set>
+        WHERE category_code = #{categoryCode}
+    </update>
+
+    <delete id="deleteCategory">
+        DELETE FROM
+                   tbl_category
+        WHERE
+            category_code = #{categoryCode}
+    </delete>
+
+</mapper>

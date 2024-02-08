@@ -5,28 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c04d029-ebd5-47da-b2f9-0835a387c25d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/remix/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/remix/MenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/remix/MenuDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/remix/MenuMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/remix/MenuService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/remix/PrintResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/remix/Template.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ohgiraffers/section03/remix/MenuMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chap04-dynamic-sql-lecture-source/src/main/resources/menu-mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/xmlconfig/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/xmlconfig/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/xmlconfig/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/xmlconfig/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/xmlconfig/MenuDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/xmlconfig/MenuDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/xmlconfig/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/xmlconfig/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/xmlconfig/PrintResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/xmlconfig/PrintResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ohgiraffers/section01/xmlconfig/menu-mapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ohgiraffers/section01/xmlconfig/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chap04-dynamic-sql-lecture-source/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chap04-dynamic-sql-lecture-source/src/main/java/com/ohgiraffers/common/MenuDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chap04-dynamic-sql-lecture-source/src/main/java/com/ohgiraffers/common/MenuDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chap04-dynamic-sql-lecture-source/src/main/java/com/ohgiraffers/common/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chap04-dynamic-sql-lecture-source/src/main/java/com/ohgiraffers/common/Template.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap02-scope-lifecycle-lecture-source/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/admin/AdminMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/admin/categoryManager/controller/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/admin/categoryManager/model/dao/CategoryDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/admin/categoryManager/model/dto/CategoryDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/admin/categoryManager/model/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/admin/categoryManager/view/CategoryMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/admin/categoryManager/view/CategoryPrint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/admin/contentManager/model/dao/ContentDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/admin/contentManager/model/dto/ContentDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/admin/userManager/model/dao/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/admin/userManager/model/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/common/SearchCondition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/common/Template.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/program/programManager/ProgramMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/program/programManager/model/dao/ProgramDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/java/com/ohgiraffers/program/programManager/model/dto/ProgramDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/resources/com/ohgiraffers/admin/categoryManager/model/dao/CategoryDAO.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/resources/config/connection-info.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis-consol-program/src/main/resources/config/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap02-scope-lifecycle-lecture-source/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chap02-scope-lifecycle-lecture-source/.idea/gradle.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +42,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="chap03-crud-lecture-source" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -56,29 +78,29 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.chap03-crud-lecture-source [:Application.main()].executor": "Run",
-    "Gradle.chap03-crud-lecture-source.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/lecture/05_mybatis/workspace/chap03-crud-lecture-source",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.chap03-crud-lecture-source [:Application.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.chap03-crud-lecture-source.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/lecture/05_mybatis/workspace/chap03-crud-lecture-source&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.ohgiraffers.section01.xmlconfig" />
@@ -110,6 +132,7 @@
       <workItem from="1706766698491" duration="6818000" />
       <workItem from="1706834103036" duration="14812000" />
       <workItem from="1706852476319" duration="145000" />
+      <workItem from="1707378156142" duration="1124000" />
     </task>
     <servers />
   </component>

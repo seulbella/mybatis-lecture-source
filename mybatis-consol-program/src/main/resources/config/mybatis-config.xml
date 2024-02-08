@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+
+    <properties resource="config/connection-info.properties"/>
+
+    <settings>
+        <!-- 언더스코어 > 카멜케이스 매핑 -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+
+    <!-- 별칭 지정 -->
+    <typeAliases>
+        <typeAlias type="com.ohgiraffers.admin.categoryManager.model.dto.CategoryDTO" alias="CategoryDTO" />
+        <typeAlias type="com.ohgiraffers.admin.contentManager.model.dto.ContentDTO" alias="ContentDTO" />
+        <typeAlias type="com.ohgiraffers.admin.userManager.model.dto.UserDTO" alias="UserDTO" />
+        <typeAlias type="com.ohgiraffers.program.programManager.model.dto.ProgramDTO" alias="ProgramDTO"/>
+    </typeAliases>
+
+    <environments default="dev">
+        <environment id="dev">
+            <!-- type : JDBC(수동 커밋) 또는 MANAGED(자동 커밋) 선택 -->
+            <transactionManager type="JDBC" />
+            <!-- type : POOLED(커넥션풀 사용) 또는 UnPOOLED(커넥션풀 미사용) 선택 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${password}" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper class="com.ohgiraffers.admin.categoryManager.model.dao.CategoryDAO"/>
+        <mapper class="com.ohgiraffers.admin.contentManager.model.dao.ContentDAO"/>
+        <mapper class="com.ohgiraffers.admin.userManager.model.dao.UserDAO"/>
+        <mapper class="com.ohgiraffers.program.programManager.model.dao.ProgramDAO"/>
+    </mappers>
+
+</configuration>
